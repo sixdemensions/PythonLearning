@@ -14,6 +14,17 @@ print(d['Jack'])
 d['Jack'] = 88
 print(d['Jack'])
 # If the key does not exist, dict will report an error:
-print(d['Thomas'])
+# print(d['Thomas'])
 # To avoid the error that the key does not exist, there are two ways. One is to use in to determine whether the key exists:
-3 > 2
+if 'Thomas' in d:
+    print('True')
+else:
+    print('False')
+# The second is through the get() method provided by dict. If the key does not exist, you can return None or the value you specify:
+d.get('Thomas',-1) # works only in python interactive enviroment
+# To delete a key, use the pop(key) method, and the corresponding value will also be deleted from the dict:
+d.pop('Bob') 
+d # works only in python interactive environment
+print(d)
+#正确使用dict非常重要，需要牢记的第一条就是dict的key必须是不可变对象
+#要保证hash的正确性，作为key的对象就不能变。在Python中，字符串、整数等都是不可变的，因此，可以放心地作为key。而list是可变的，就不能作为key
